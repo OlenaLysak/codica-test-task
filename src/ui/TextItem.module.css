@@ -1,0 +1,13 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+}
+.item {
+  display: flex;
+  flex-direction: row;
+  margin: 5px 0;
+  border-bottom: solid 1px lightblue;
+}
+.prop {
+  min-width: 150px;
+}

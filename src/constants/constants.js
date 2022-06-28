@@ -4,4 +4,6 @@ const API_KEY = 'fea432f5a5187b9e8191796cde2a1e29';
 //For temperature in Celsius use units=metric
 const UNITS = '&units=metric';
 
-export { API_KEY, UNITS };
+const DEGREE_SYMBOL = '\u00B0';
+
+export { API_KEY, UNITS, DEGREE_SYMBOL };

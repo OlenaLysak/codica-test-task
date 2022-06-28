@@ -3,14 +3,12 @@ import styles from './CityCard.module.css';
 import { Link } from 'react-router-dom';
 
 //Constants
-import { API_KEY, UNITS } from '../../constants/constants';
+import { API_KEY, UNITS, DEGREE_SYMBOL } from '../../constants/constants';
 
 const CityCard = ({ name, id, lat, lon }) => {
   const [data, setData] = useState({});
   const [error, setError] = useState('');
-  const degreesSymb = '\u00B0';
 
-  // const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}${UNITS}`;
   const url = `https://api.openweathermap.org/data/2.5/weather?q=${name}&appid=${API_KEY}${UNITS}`;
   console.log('url', url);
 
@@ -33,11 +31,11 @@ const CityCard = ({ name, id, lat, lon }) => {
           <div className={styles.details}>
             <div>
               Temperature: {data?.main?.temp}
-              {degreesSymb}
+              {DEGREE_SYMBOL}
             </div>
             <div>
               Feels like: {data?.main?.feels_like}
-              {degreesSymb}
+              {DEGREE_SYMBOL}
             </div>
             <div>Humidity: {data?.main?.humidity}%</div>
           </div>

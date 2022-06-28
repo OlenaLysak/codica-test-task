@@ -1,9 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styles from './CitiesList.module.css';
 
 //Components
 import CityCard from './CityCard';
-import { Link } from 'react-router-dom';
 
 //Icons
 import AddIcon from '@mui/icons-material/Add';
