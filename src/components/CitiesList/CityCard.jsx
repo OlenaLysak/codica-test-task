@@ -17,14 +17,14 @@ import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import useMyContext from '../../context/useMyContext';
 
 //Utils
-import { setUrl } from '../../utils/dataUtils';
+import { setUrlByCoord } from '../../utils/dataUtils';
 
 const CityCard = ({ id, lat, lon }) => {
   const [data, setData] = useState({});
   const [error, setError] = useState('');
   const { cities, setCities } = useMyContext();
 
-  const url = setUrl(lat, lon);
+  const url = setUrlByCoord(lat, lon);
 
   const handleRefresh = (e) => {
     e.preventDefault();

@@ -13,4 +13,12 @@ const INITIAL_CITIES = [
   { id: '706483', name: 'Kharkiv', lat: 49.9923181, lon: 36.2310146 },
 ];
 
-export { API_KEY, UNITS, DEGREE_SYMBOL, INITIAL_CITIES };
+const CITY_INPUT_OPTIONS_LIMIT = 5;
+
+export {
+  API_KEY,
+  UNITS,
+  DEGREE_SYMBOL,
+  INITIAL_CITIES,
+  CITY_INPUT_OPTIONS_LIMIT,
+};

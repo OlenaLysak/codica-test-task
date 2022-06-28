@@ -12,7 +12,7 @@ import styles from './CityPage.module.css';
 import useMyContext from '../../context/useMyContext';
 
 //Utils
-import { setUrl } from '../../utils/dataUtils';
+import { setUrlByCoord } from '../../utils/dataUtils';
 
 const CityPage = () => {
   const [error, setError] = useState('');
@@ -22,7 +22,7 @@ const CityPage = () => {
   const currentCity = cities.find((el) => el.id === id);
 
   useEffect(() => {
-    const url = setUrl(currentCity.lat, currentCity.lon);
+    const url = setUrlByCoord(currentCity.lat, currentCity.lon);
     fetch(url)
       .then((response) => response.json())
       .then((data) => {
