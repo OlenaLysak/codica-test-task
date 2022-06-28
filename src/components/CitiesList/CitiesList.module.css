@@ -5,7 +5,7 @@
   justify-content: center;
 }
 
-.btn {
+.addCard {
   color: #1f76d2;
   border: solid 1px gray;
   box-shadow: 5px 5px 5px gray;
@@ -18,5 +18,4 @@
   align-items: center;
   justify-content: center;
   margin: 20px;
-  cursor: pointer;
 }
