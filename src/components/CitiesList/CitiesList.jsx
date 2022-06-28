@@ -21,13 +21,7 @@ const CitiesList = () => {
       </div>
       {cities.map((item) => {
         return (
-          <CityCard
-            key={item.id}
-            id={item.id}
-            name={item.name}
-            lat={item.lat}
-            lon={item.lon}
-          />
+          <CityCard key={item.id} id={item.id} lat={item.lat} lon={item.lon} />
         );
       })}
     </div>

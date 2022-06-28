@@ -8,11 +8,11 @@ import { Link } from 'react-router-dom';
 //Styles
 import styles from './CityPage.module.css';
 
-//Constants
-import { API_KEY, UNITS } from '../../constants/constants';
-
 //Context
 import useMyContext from '../../context/useMyContext';
+
+//Utils
+import { setUrl } from '../../utils/dataUtils';
 
 const CityPage = () => {
   const [error, setError] = useState('');
@@ -22,7 +22,7 @@ const CityPage = () => {
   const currentCity = cities.find((el) => el.id === id);
 
   useEffect(() => {
-    const url = `https://api.openweathermap.org/data/2.5/weather?lat=${currentCity.lat}&lon=${currentCity.lon}&appid=${API_KEY}${UNITS}`;
+    const url = setUrl(currentCity.lat, currentCity.lon);
     fetch(url)
       .then((response) => response.json())
       .then((data) => {
