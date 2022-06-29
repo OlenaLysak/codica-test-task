@@ -24,7 +24,7 @@ function App() {
   const handleOptionSelected = (e, item) => {
     if (!item) return;
     const newCity = {
-      id: item.it,
+      id: item.id,
       name: item.name,
       lat: item.lat,
       lon: item.lon,
@@ -36,6 +36,7 @@ function App() {
     const updatedList = [...cities];
     updatedList.push(newCity);
     setCities(updatedList);
+    localStorage.setItem('cities', JSON.stringify(updatedList));
   };
 
   return (

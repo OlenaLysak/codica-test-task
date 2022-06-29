@@ -21,7 +21,7 @@ const CityInput = ({ handleOptionSelected }) => {
       const label = `${item.name}${locationState}, ${item.country}`;
       const option = {
         label: label,
-        id: Date.now(),
+        id: Date.now().toString(),
         lat: item.lat,
         lon: item.lon,
         name: item.name,

@@ -35,6 +35,7 @@ const CityCard = ({ id, lat, lon }) => {
     e.preventDefault();
     const updatedList = cities.filter((item) => item.id !== id);
     setCities(updatedList);
+    localStorage.setItem('cities', JSON.stringify(updatedList));
   };
 
   const getData = () => {
