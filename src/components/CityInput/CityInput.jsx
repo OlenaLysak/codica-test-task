@@ -5,7 +5,7 @@ import { Autocomplete } from '@mui/material';
 import TextField from '@mui/material/TextField';
 
 //Utils
-import { setUrlByCity } from '../../utils/dataUtils';
+import { setUrlByCity } from '../../utils/dataUtils.ts';
 
 const CityInput = ({ handleOptionSelected }) => {
   const [options, setOptions] = useState([]);

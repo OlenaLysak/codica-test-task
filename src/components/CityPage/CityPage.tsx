@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
 //Components
@@ -14,12 +14,30 @@ import useMyContext from '../../context/useMyContext';
 //Utils
 import { setUrlByCoord } from '../../utils/dataUtils';
 
-const CityPage = () => {
+//Types
+import { CityItem } from '../../../types';
+
+const CityPage = (): JSX.Element => {
   const [error, setError] = useState('');
   const { id } = useParams();
   const { cities } = useMyContext();
-  const [data, setData] = useState({});
-  const currentCity = cities.find((el) => el.id === id);
+  const [data, setData] = useState({
+    name: '',
+    sys: {
+      country: '',
+    },
+    main: {
+      temp: 0,
+      feels_like: 0,
+      temp_max: 0,
+      temp_min: 0,
+      humidity: 0,
+    },
+    wind: {
+      speed: 0,
+    },
+  });
+  const currentCity = cities.find((el: CityItem) => el.id === id);
 
   useEffect(() => {
     const url = setUrlByCoord(currentCity.lat, currentCity.lon);
@@ -31,7 +49,7 @@ const CityPage = () => {
       .catch((error) => setError(error.message));
   }, [currentCity]);
 
-  if (error) return console.log(error);
+  if (error) return <h1>{error}</h1>;
 
   return (
     <div className={styles.wrapper}>

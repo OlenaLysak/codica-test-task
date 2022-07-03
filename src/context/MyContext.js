@@ -9,8 +9,7 @@ const MyContextProvider = ({ children }) => {
 
   useEffect(() => {
     const citiesCache = JSON.parse(localStorage.getItem('cities'));
-    if (!!citiesCache.length) {
-      console.log(citiesCache);
+    if (!!citiesCache) {
       setCities(citiesCache);
     }
   }, []);

@@ -1,5 +1,7 @@
-import React from 'react';
 import styles from './CitiesList.module.css';
+
+//Types
+import { CityItem } from '../../../types';
 
 //Components
 import CityCard from './CityCard';
@@ -12,7 +14,7 @@ const CitiesList = () => {
 
   return (
     <div className={styles.list}>
-      {cities.map((item) => {
+      {cities.map((item: CityItem) => {
         return (
           <CityCard key={item.id} id={item.id} lat={item.lat} lon={item.lon} />
         );

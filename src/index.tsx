@@ -12,7 +12,9 @@ import CityPage from './components/CityPage/CityPage';
 //Context
 import MyContextProvider from './context/MyContext';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(
+  document.getElementById('root') as HTMLElement
+);
 root.render(
   <React.StrictMode>
     <MyContextProvider>
