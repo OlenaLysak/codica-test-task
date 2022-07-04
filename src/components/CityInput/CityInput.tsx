@@ -8,7 +8,7 @@ import TextField from '@mui/material/TextField';
 import { setUrlByCity } from '../../utils/dataUtils';
 
 //Types
-import { InputProps, LocationProps, CityItem } from '../../../types';
+import { InputProps, LocationProps, CityItem } from '../../types/types';
 
 const CityInput = ({ handleOptionSelected }: InputProps) => {
   const [options, setOptions] = useState(Array<CityItem>);

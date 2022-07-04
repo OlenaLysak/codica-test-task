@@ -20,7 +20,7 @@ import useMyContext from '../../context/useMyContext';
 import { setUrlByCoord } from '../../utils/dataUtils';
 
 //Types
-import { CityItem } from '../../../types';
+import { CityItem } from '../../types/types';
 
 const CityCard = (Props: CityItem): JSX.Element => {
   const [data, setData] = useState(CITY_INIT_VALUES);

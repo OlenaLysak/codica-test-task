@@ -4,7 +4,7 @@ import React from 'react';
 import styles from './TextItem.module.css';
 
 //Types
-import { TextItemProps } from '../../types';
+import { TextItemProps } from '../types/types';
 
 const TextItem = ({ value, title }: TextItemProps): JSX.Element => {
   return (

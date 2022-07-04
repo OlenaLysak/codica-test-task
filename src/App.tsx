@@ -9,10 +9,14 @@ import useMyContext from './context/useMyContext';
 import styles from './App.module.css';
 
 //Types
-import { CityItem } from '../types';
+import { CityItem } from './types/types';
+
+//Redux
+import { useAppSelector } from './hooks/redux';
 
 const App = (): JSX.Element => {
-  const { cities, setCities } = useMyContext();
+  // const { cities, setCities } = useMyContext();
+  const { cities } = useAppSelector((state) => state.cityReducer.cities);
 
   const checkDuplicates = (item: { lat: number; lon: number }): boolean => {
     const duplicate: boolean = cities.find(
