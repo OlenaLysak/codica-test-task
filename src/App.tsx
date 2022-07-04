@@ -9,7 +9,7 @@ import useMyContext from './context/useMyContext';
 import styles from './App.module.css';
 
 //Types
-import { CityItem } from '../types';
+import { CityItem } from './types/types';
 
 const App = (): JSX.Element => {
   const { cities, setCities } = useMyContext();

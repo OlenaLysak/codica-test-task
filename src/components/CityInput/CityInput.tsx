@@ -8,7 +8,7 @@ import TextField from '@mui/material/TextField';
 import { setUrlByCity } from '../../utils/dataUtils';
 
 //Types
-import { InputProps, LocationProps, CityItem } from '../../../types';
+import { InputProps, LocationProps, CityItem } from '../../types/types';
 
 const CityInput = ({ handleOptionSelected }: InputProps) => {
   const [options, setOptions] = useState(Array<CityItem>);
@@ -55,7 +55,7 @@ const CityInput = ({ handleOptionSelected }: InputProps) => {
     <Autocomplete
       sx={{ width: 350 }}
       options={options}
-      // onChange={(e, value) => handleOptionSelected(value)}
+      // onChange={(e, value) => handleOptionSelected(value)} //this is where i have a bug
       onInputChange={(e, value) => handleInputChange(value)}
       renderInput={(params) => (
         <TextField {...params} label="Add another city" />

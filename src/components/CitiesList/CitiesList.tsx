@@ -1,7 +1,7 @@
 import styles from './CitiesList.module.css';
 
 //Types
-import { CityItem } from '../../../types';
+import { CityItem } from '../../types/types';
 
 //Components
 import CityCard from './CityCard';

@@ -9,14 +9,6 @@ export interface CityItem {
   label?: string;
 }
 
-export interface ObjectItem extends Object {
-  id: string;
-  lat: number;
-  lon: number;
-  name: string;
-  label: string;
-} //??????????
-
 export interface AppContextInterface {
   cities: [CityItem];
   setCities: Dispatch<SetStateAction<[CityItem]>>;

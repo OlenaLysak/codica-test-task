@@ -15,7 +15,7 @@ import useMyContext from '../../context/useMyContext';
 import { setUrlByCoord } from '../../utils/dataUtils';
 
 //Types
-import { CityItem } from '../../../types';
+import { CityItem } from '../../types/types';
 
 const CityPage = (): JSX.Element => {
   const [error, setError] = useState('');
