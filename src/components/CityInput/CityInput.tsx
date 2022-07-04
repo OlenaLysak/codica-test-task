@@ -1,21 +1,24 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
 //Components
 import { Autocomplete } from '@mui/material';
 import TextField from '@mui/material/TextField';
 
 //Utils
-import { setUrlByCity } from '../../utils/dataUtils.ts';
+import { setUrlByCity } from '../../utils/dataUtils';
 
-const CityInput = ({ handleOptionSelected }) => {
-  const [options, setOptions] = useState([]);
+//Types
+import { InputProps, LocationProps, CityItem } from '../../../types';
+
+const CityInput = ({ handleOptionSelected }: InputProps) => {
+  const [options, setOptions] = useState(Array<CityItem>);
   const [userInput, setUserInput] = useState('');
 
   useEffect(() => {
     if (!userInput.length) setOptions([]);
   }, [userInput]);
 
-  const formatOptions = (data) => {
+  const formatOptions = (data: [LocationProps]) => {
     const formattedOptions = data.map((item) => {
       const locationState = item.state ? `, ${item.state}` : '';
       const label = `${item.name}${locationState}, ${item.country}`;
@@ -32,7 +35,7 @@ const CityInput = ({ handleOptionSelected }) => {
     return formattedOptions;
   };
 
-  const handleInputChange = (value) => {
+  const handleInputChange = (value: string) => {
     setUserInput(value);
   };
 
@@ -52,7 +55,7 @@ const CityInput = ({ handleOptionSelected }) => {
     <Autocomplete
       sx={{ width: 350 }}
       options={options}
-      onChange={(e, value) => handleOptionSelected(value)}
+      // onChange={(e, value) => handleOptionSelected(value)}
       onInputChange={(e, value) => handleInputChange(value)}
       renderInput={(params) => (
         <TextField {...params} label="Add another city" />

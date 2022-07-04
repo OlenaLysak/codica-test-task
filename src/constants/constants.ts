@@ -15,10 +15,28 @@ const INITIAL_CITIES = [
 
 const CITY_INPUT_OPTIONS_LIMIT = 5;
 
+const CITY_INIT_VALUES = {
+  name: '',
+  sys: {
+    country: '',
+  },
+  main: {
+    temp: 0,
+    feels_like: 0,
+    temp_max: 0,
+    temp_min: 0,
+    humidity: 0,
+  },
+  wind: {
+    speed: 0,
+  },
+};
+
 export {
   API_KEY,
   UNITS,
   DEGREE_SYMBOL,
   INITIAL_CITIES,
   CITY_INPUT_OPTIONS_LIMIT,
+  CITY_INIT_VALUES,
 };

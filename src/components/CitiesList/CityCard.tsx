@@ -3,7 +3,7 @@ import styles from './CityCard.module.css';
 import { Link } from 'react-router-dom';
 
 //Constants
-import { DEGREE_SYMBOL } from '../../constants/constants';
+import { DEGREE_SYMBOL, CITY_INIT_VALUES } from '../../constants/constants';
 
 //Components
 import Button from '@mui/material/Button';
@@ -19,21 +19,24 @@ import useMyContext from '../../context/useMyContext';
 //Utils
 import { setUrlByCoord } from '../../utils/dataUtils';
 
-const CityCard = ({ id, lat, lon }) => {
-  const [data, setData] = useState({});
+//Types
+import { CityItem } from '../../../types';
+
+const CityCard = (Props: CityItem): JSX.Element => {
+  const [data, setData] = useState(CITY_INIT_VALUES);
   const [error, setError] = useState('');
   const { cities, setCities } = useMyContext();
 
-  const url = setUrlByCoord(lat, lon);
+  const url = setUrlByCoord(Props.lat, Props.lon);
 
-  const handleRefresh = (e) => {
+  const handleRefresh = (e: React.SyntheticEvent): void => {
     e.preventDefault();
     getData();
   };
 
-  const handleDelete = (e) => {
+  const handleDelete = (e: React.SyntheticEvent): void => {
     e.preventDefault();
-    const updatedList = cities.filter((item) => item.id !== id);
+    const updatedList = cities.filter((item: CityItem) => item.id !== Props.id);
     setCities(updatedList);
     localStorage.setItem('cities', JSON.stringify(updatedList));
   };
@@ -55,7 +58,10 @@ const CityCard = ({ id, lat, lon }) => {
 
   return (
     <div className={styles.card}>
-      <Link to={`/${id}`} style={{ textDecoration: 'none', color: 'black' }}>
+      <Link
+        to={`/${Props.id}`}
+        style={{ textDecoration: 'none', color: 'black' }}
+      >
         <div className={styles.clickArea}>
           <div className={styles.name}>{data?.name}</div>
           <div className={styles.details}>
@@ -69,7 +75,7 @@ const CityCard = ({ id, lat, lon }) => {
             </div>
             <div>Humidity: {data?.main?.humidity}%</div>
           </div>
-          <div className={styles.refreshBtn}>
+          <div className={styles.actionBtns}>
             <Button onClick={handleRefresh} variant="contained" size="small">
               <span>Refresh</span>
               <RefreshIcon />

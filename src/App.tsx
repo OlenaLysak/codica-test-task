@@ -1,6 +1,6 @@
 //Components
 import CitiesList from './components/CitiesList/CitiesList';
-import CityInput from './components/CityInput/CityInput';
+import CityInput from './components/CityInput/CityInput.jsx';
 
 //Context
 import useMyContext from './context/useMyContext';
@@ -8,10 +8,13 @@ import useMyContext from './context/useMyContext';
 //Style
 import styles from './App.module.css';
 
+//Types
+import { CityItem } from '../types';
+
 const App = (): JSX.Element => {
   const { cities, setCities } = useMyContext();
 
-  const checkDuplicates = (item: { lat: number; lon: number }) => {
+  const checkDuplicates = (item: { lat: number; lon: number }): boolean => {
     const duplicate: boolean = cities.find(
       (city: { lat: number; lon: number }) =>
         city.lat === item.lat && city.lon === item.lon
@@ -19,10 +22,7 @@ const App = (): JSX.Element => {
     return !!duplicate;
   };
 
-  const handleOptionSelected = (
-    e: {},
-    item: { id: string; name: string; lat: number; lon: number }
-  ) => {
+  const handleOptionSelected = (item?: CityItem) => {
     if (!item) return;
     const newCity = {
       id: item.id,

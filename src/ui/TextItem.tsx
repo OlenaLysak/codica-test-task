@@ -3,7 +3,10 @@ import React from 'react';
 //Style
 import styles from './TextItem.module.css';
 
-const TextItem = ({ title, value }) => {
+//Types
+import { TextItemProps } from '../../types';
+
+const TextItem = ({ value, title }: TextItemProps): JSX.Element => {
   return (
     <>
       {value ? (
